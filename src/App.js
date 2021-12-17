@@ -14,7 +14,7 @@ function App() {
   let displayForm;
   // Adds New Task
   const onNewTaskHandler = async (data) => {
-    const res = await fetch(`http://localhost:3301/tasks`, {
+    const res = await fetch(`http://localhost:3001/tasks`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +32,7 @@ function App() {
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const res = await fetch("http://localhost:3301/tasks");
+      const res = await fetch("http://localhost:3001/tasks");
       const data = await res.json();
       settasks(data);
     };
@@ -56,7 +56,7 @@ function App() {
   // Delete Tasks
 
   const onDeleteTaskHandler = async (id) => {
-    await fetch(`http://localhost:3301/tasks/${id}`, {
+    await fetch(`http://localhost:3001/tasks/${id}`, {
       method: "DELETE",
     });
     settasks(tasks.filter((task) => task.id !== id));
